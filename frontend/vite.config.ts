@@ -11,9 +11,12 @@ export default defineConfig({
 	// chunks the new build no longer has.
 	define: { __APP_VERSION__: JSON.stringify(version) },
 	server: {
-		host: '0.0.0.0',
-		port: 3000,
-		strictPort: true,
+        host: '0.0.0.0',
+        port: 3000,
+        strictPort: true,
+        allowedHosts: [
+            'open-wearables-u80491.vm.elestio.app'
+        ],
 		// inotify does not fire reliably for files delivered by `docker compose
 		// watch`, so fall back to polling inside the container only — polling on a
 		// developer machine just burns CPU.
