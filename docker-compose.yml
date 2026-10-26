@@ -32,6 +32,10 @@ services:
       - REDIS_HOST=redis
       # Keeps root-owned __pycache__ out of the mounted extensions
       - PYTHONPYCACHEPREFIX=/tmp/pycache
+      - WHOOP_CLIENT_ID=${WHOOP_CLIENT_ID}
+      - WHOOP_CLIENT_SECRET=${WHOOP_CLIENT_SECRET}
+      - WHOOP_REDIRECT_URI=${WHOOP_REDIRECT_URI}
+      - WHOOP_DEFAULT_SCOPE=${WHOOP_DEFAULT_SCOPE}
     ports:
       - "${API_PORT:-8000}:8000"
     depends_on:
@@ -72,6 +76,10 @@ services:
     environment:
       - DB_HOST=db
       - REDIS_HOST=redis
+      - WHOOP_CLIENT_ID=${WHOOP_CLIENT_ID}
+      - WHOOP_CLIENT_SECRET=${WHOOP_CLIENT_SECRET}
+      - WHOOP_REDIRECT_URI=${WHOOP_REDIRECT_URI}
+      - WHOOP_DEFAULT_SCOPE=${WHOOP_DEFAULT_SCOPE}
       - PYTHONPYCACHEPREFIX=/tmp/pycache
     depends_on:
       - redis
@@ -98,6 +106,10 @@ services:
     environment:
       - DB_HOST=db
       - REDIS_HOST=redis
+      - WHOOP_CLIENT_ID=${WHOOP_CLIENT_ID}
+      - WHOOP_CLIENT_SECRET=${WHOOP_CLIENT_SECRET}
+      - WHOOP_REDIRECT_URI=${WHOOP_REDIRECT_URI}
+      - WHOOP_DEFAULT_SCOPE=${WHOOP_DEFAULT_SCOPE}
       - PYTHONPYCACHEPREFIX=/tmp/pycache
     depends_on:
       - redis
