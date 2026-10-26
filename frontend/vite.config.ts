@@ -14,14 +14,12 @@ export default defineConfig({
         host: '0.0.0.0',
         port: 3000,
         strictPort: true,
-        allowedHosts: [
-            'open-wearables-u80491.vm.elestio.app'
-        ],
-		// inotify does not fire reliably for files delivered by `docker compose
-		// watch`, so fall back to polling inside the container only — polling on a
-		// developer machine just burns CPU.
-		watch: process.env.DOCKER ? { usePolling: true } : undefined
-	},
+        allowedHosts: true,
+        // inotify does not fire reliably for files delivered by `docker compose
+        // watch`, so fall back to polling inside the container only — polling on a
+        // developer machine just burns CPU.
+        watch: process.env.DOCKER ? { usePolling: true } : undefined
+    },
 	plugins: [
 		tailwindcss(),
 		sveltekit({
